@@ -1,8 +1,12 @@
 # jest-examplar
 A repository containing a Jest Example for React
 
+## Node/Io.js Notes
+Currently, Jest 0.4 works on Node, while Jest 0.5 works on Io.js. When Node 4.0 comes out, this will no longer be an issue.
+
 ## How to get Jest working?
-1. `npm install --save jest jest-cli`
+1. `npm install --save jest jest-cli@0.4`
+2. 
 
 ## Glossary
 ### Jest
