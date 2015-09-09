@@ -16,12 +16,32 @@ Currently, Jest 0.4 works on Node, while Jest 0.5 works on Io.js. When Node 4.0 
 ```
 - Jest 0.5x only works with **io.js**. Jest 0.4x works (?) with **node.js** (and possibly io.js as well, but if you're running Io, it makes sense to use `0.5x` for Jest
 - Jest will automatically mock anything you `require`, which can lead to very confusing results. **require statements often don't mean what you think they do in `Jest`** (https://facebook.github.io/jest/docs/automatic-mocking.html)
+- 
+
 
 ## How to get Jest working?
 1. `npm install --save jest jest-cli`
 2. `npm install --g jest-cli`
 3. `npm init`
 4. Add `jest` section to package.json
+
+## JSX in Jest?
+There is a property in the `package.json` Jest configuration specifically for this called `scriptPreprocessor`. Here is a generic preprocessor for JSX from the docs:
+
+```javascript
+var ReactTools = require('react-tools');
+module.exports = {
+  process: function(src) {
+    return ReactTools.transform(src);
+  }
+};
+```
+
+And an example configuration, also from the docs:
+```
+ "jest": {
+    "scriptPreprocessor": "./preprocessor.js",
+```
 
 ## Glossary
 ### Jest
