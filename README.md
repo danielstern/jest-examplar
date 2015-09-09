@@ -24,6 +24,7 @@ Currently, Jest 0.4 works on Node, while Jest 0.5 works on Io.js. When Node 4.0 
 2. `npm install --g jest-cli`
 3. `npm init`
 4. Add `jest` section to package.json
+5. Create `__tests__/basic-test.js` (Code inside this file will run when you call `jest` from the command line)
 
 ## JSX in Jest?
 There is a property in the `package.json` Jest configuration specifically for this called `scriptPreprocessor`. Here is a generic preprocessor for JSX from the docs:
@@ -47,8 +48,11 @@ And an example configuration, also from the docs:
 ### Jest
 The "default-mocking" framework (is that why they call it Jest?)
 
+### Jest-CLI
+A tool for using Jest from the command line. Install it globally unless you're using a tool like Gulp to automate Jesting.
+
 ### React
-A library often used with Jest. Though they are often thought of together and made by Facebook, Jest can be used to test other things.
+A library often used with Jest. This is a bit confusing because, though they are often thought of together and made by Facebook, Jest can be used to test other things. Jest is easiest understood seperate from React (Just as Karma is more easily understood if seperated from Angular)
 
 ### Facebook
 An internet company which maintains Jest, as well as React.
