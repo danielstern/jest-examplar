@@ -13,12 +13,13 @@ var items = [{
     description:"This stylish cardboard box will hide you from all sorts of tactical personnel",
     priceUSD:"34.95"
 }];
+
 server.get('/',function(req,res){
     var app = React.createFactory(require('./app/main.jsx'));
 
     var generated = React.renderToString(app({
         items
     }));
-    res.render('index',{app:generated});
+    res.render('app/index',{app:generated});
 });
 server.listen(80);
