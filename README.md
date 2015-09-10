@@ -57,7 +57,7 @@ A library often used with Jest. This is a bit confusing because, though they are
 ### Facebook
 An internet company which maintains Jest, as well as React.
 
-##TestUtils
+### TestUtils
 A tool that comes with React that lets you easily generate virtual instances of components for testing. Allows for convenient functions like `findRenderedDOMComponentWithTag` that are somewhat reminiscent of Protractor.
 
 ## Links
