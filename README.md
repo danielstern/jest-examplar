@@ -3,6 +3,7 @@ A repository containing a Jest Example for React
 
 ## Node/Io.js Notes
 ~~Currently, Jest 0.4 works on Node, while Jest 0.5 works on Io.js. When Node 4.0 comes out, this will no longer be an issue.~~
+
 Now that Node v4.0 has been released, use Node 4.0+ with Jest 0.5+
 
 ## Jest Gotchas
@@ -62,8 +63,8 @@ An internet company which maintains Jest, as well as React.
 A tool that comes with React that lets you easily generate virtual instances of components for testing. Allows for convenient functions like `findRenderedDOMComponentWithTag` that are somewhat reminiscent of Protractor.
 
 ## Resources
-https://facebook.github.io/jest/
-https://facebook.github.io/jest/docs/tutorial-react.html
+- https://facebook.github.io/jest/
+- https://facebook.github.io/jest/docs/tutorial-react.html
 
 ### API References :rocket:
 https://facebook.github.io/jest/docs/api.html#content
