@@ -1,11 +1,11 @@
 let React = require('react/addons');
 
 module.exports = React.createClass({
-    render:()=>{
+    render(){
         return (
             <div>
-                <h4>A Cart Item</h4>
                 <div>{this.props.item.name}</div>
+                <div>{this.props.item.priceUSD}</div>
             </div>
         )
     }

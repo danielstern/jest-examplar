@@ -12,6 +12,11 @@ var items = [{
     name:"Box",
     description:"This stylish cardboard box will hide you from all sorts of tactical personnel",
     priceUSD:"34.95"
+},{
+    id:042089,
+    name:"Camera",
+    description:"What better way to share that beautiful Costa Rican vista with your friends?",
+    priceUSD:"155.95"
 }];
 
 server.get('/',function(req,res){
