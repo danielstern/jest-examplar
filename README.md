@@ -67,8 +67,6 @@ A tool that comes with React that lets you easily generate virtual instances of 
 - https://facebook.github.io/jest/docs/tutorial-react.html
 
 ### API References :rocket:
-https://facebook.github.io/jest/docs/api.html#content
-
-https://facebook.github.io/react/docs/component-api.html
-
-https://facebook.github.io/react/docs/component-specs.html
+- https://facebook.github.io/jest/docs/api.html#content
+- https://facebook.github.io/react/docs/component-api.html
+- https://facebook.github.io/react/docs/component-specs.html
