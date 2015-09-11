@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --verbose",
     "start": "nodemon server.js"
   },
   "author": "",
@@ -16,6 +16,11 @@
     "jest": "^0.1.40",
     "jquery": "^2.1.4",
     "react": "^0.13.3"
+  },
+  "jest": {
+    "unmockedModulePathPatterns": [
+      "react"
+    ]
   },
   "devDependencies": {
     "jest-cli": "^0.5.4",
