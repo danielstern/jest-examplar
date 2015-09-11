@@ -2,7 +2,8 @@
 A repository containing a Jest Example for React
 
 ## Node/Io.js Notes
-Currently, Jest 0.4 works on Node, while Jest 0.5 works on Io.js. When Node 4.0 comes out, this will no longer be an issue.
+~~Currently, Jest 0.4 works on Node, while Jest 0.5 works on Io.js. When Node 4.0 comes out, this will no longer be an issue.~~
+Now that Node v4.0 has been released, use Node 4.0+ with Jest 0.5+
 
 ## Jest Gotchas
 - You must have a "jest" section in your `package.json` or `jest` will quietly fail. The `unmockedModulePathPatterns` property is **really important** as `dontMock` does not work very well for modules. Here's an example.
