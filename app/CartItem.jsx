@@ -8,7 +8,7 @@ module.exports = React.createClass({
                 <p role="price">Your price - <span id="CartItemPriceDisplay">${this.props.item.priceUSD}</span></p>
                 <p role="description">{this.props.item.description}</p>
                 <form>
-                    <button role="remove">Remove this item from the cart?</button>
+                    <button role="remove">Remove this item from the cart</button>
                 </form>
             </section>
         )
