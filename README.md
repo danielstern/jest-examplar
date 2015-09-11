@@ -60,6 +60,12 @@ An internet company which maintains Jest, as well as React.
 ### TestUtils
 A tool that comes with React that lets you easily generate virtual instances of components for testing. Allows for convenient functions like `findRenderedDOMComponentWithTag` that are somewhat reminiscent of Protractor.
 
-## Links
+## Resources
 https://facebook.github.io/jest/
 https://facebook.github.io/jest/docs/tutorial-react.html
+
+### API References :rocket:
+https://facebook.github.io/jest/docs/api.html#content
+
+https://facebook.github.io/react/docs/component-api.html
+https://facebook.github.io/react/docs/component-specs.html
