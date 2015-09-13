@@ -1,4 +1,4 @@
-var restHelper = require("./restHelper.js");
+var restHelper = require("./../helpers/restHelper.js");
 
 function RatesStore(){
 
@@ -16,11 +16,8 @@ function RatesStore(){
     },
     getRates(){
       return conversions;
-    },
-    convertUSDtoCad(USD){
-
     }
   }
 }
 
-module.exports = new currencyConverter();
+module.exports = new RatesStore();
