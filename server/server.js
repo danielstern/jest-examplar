@@ -32,7 +32,7 @@ server.get('/',function(req,res){
         conversions,
         promotions
     }));
-    res.render('app/index',{app:generated});
+    res.render('app/index',{app:generated,defaults:JSON.stringify({items,conversions,promotions})});
 })
 .get("/rates",function(req,res){
   res.json(conversions);
