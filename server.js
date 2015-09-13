@@ -7,6 +7,7 @@ var server = new express();
 server.set("view engine","ejs");
 server.set("views","./");
 server.use('/bower_components',  express.static(__dirname + '/bower_components'));
+server.use('/',  express.static(__dirname + '/.tmp'));
 
 var items = require('./items.js');
 
@@ -20,7 +21,6 @@ var promotions = [{
     applyTo:[042089],
     reducePriceByUSD:5
 }];
-
 
 server.get('/',function(req,res){
     var app = React.createFactory(require('./app/main.jsx'));
