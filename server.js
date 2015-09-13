@@ -26,7 +26,9 @@ server.get('/',function(req,res){
     var app = React.createFactory(require('./app/main.jsx'));
 
     var generated = React.renderToString(app({
-        items
+        items,
+        conversions,
+        promotions
     }));
     res.render('app/index',{app:generated});
 })

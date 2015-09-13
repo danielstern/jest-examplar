@@ -4,7 +4,6 @@ var GenericStore = require('./GenericStore.js');
 class RatesStore extends GenericStore {
   constructor(){
     super();
-    console.log("Getting rates.");
     restHelper.get('rates')
     .then((conversionRates)=>{
       console.log("Got rates...",conversionRates);
