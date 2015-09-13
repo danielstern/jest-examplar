@@ -7,22 +7,7 @@ var server = new express();
 server.set("view engine","ejs");
 server.set("views","./");
 
-var items = [{
-    id:042089,
-    name:"Box",
-    description:"This stylish cardboard box will hide you from all sorts of tactical personnel",
-    priceUSD:"34.95"
-},{
-    id:042030,
-    name:"Camera",
-    description:"What better way to share that beautiful Costa Rican vista with your friends?",
-    priceUSD:"155.95"
-},{
-    id:042031,
-    name:"Magazine",
-    description:"One can't help but be distracted by this magazine.",
-    priceUSD:"9.00"
-}];
+var items = require('./items.js');
 
 var promotions = [{
     applyTo:[042089],
