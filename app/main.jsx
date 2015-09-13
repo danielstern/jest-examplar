@@ -4,7 +4,6 @@ let CartItem = require('./components/CartItem.jsx');
 
 let CartApp = React.createClass({
     getPromotionsForItem(item){
-      console.log("getting promotions",item);
       return this.props.promotions.filter(p => p.applyTo.find(i => +i === +item.id));
     },
     render(){
