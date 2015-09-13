@@ -1,23 +1,28 @@
 var restHelper = require("./../helpers/restHelper.js");
+var GenericStore = require('./GenericStore.js');
 
-function RatesStore(){
-
-  // keep variables hidden
-  var conversions = undefined;
-
-  restHelper.get('rates',function(conversionRates){
-    console.log("Got rates...",conversionRates);
-    conversions = conversionRates;
-  });
-
-  return {
-    hasRates(){
-      return !!conversions;
-    },
-    getRates(){
-      return conversions;
-    }
+class RatesStore extends GenericStore {
+  constructor(){
+    super();
+    console.log("Getting rates.");
+    restHelper.get('rates')
+    .then((conversionRates)=>{
+      console.log("Got rates...",conversionRates);
+      this.conversions = conversionRates;
+    },(e)=>{throw e});
   }
+
+//  var conversions = undefined;
+//
+//
+//  return {
+//    hasRates(){
+//      return !!conversions;
+//    },
+//    getRates(){
+//      return conversions;
+//    }
+//  }
 }
 
 module.exports = new RatesStore();
