@@ -11,11 +11,15 @@
   "license": "ISC",
   "dependencies": {
     "babel": "^5.8.23",
+    "babelify": "^6.3.0",
+    "browserify": "^11.1.0",
     "ejs": "^2.3.4",
     "express": "^4.13.3",
+    "gulp": "^3.9.0",
     "jest": "^0.1.40",
     "jquery": "^2.1.4",
-    "react": "^0.13.3"
+    "react": "^0.13.3",
+    "vinyl-source-stream": "^1.1.0"
   },
   "jest": {
     "unmockedModulePathPatterns": [
