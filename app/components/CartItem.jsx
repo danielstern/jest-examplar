@@ -1,6 +1,7 @@
+"use strict";
 var React = require('react/addons');
 
-var ratesStore = require('./../stores/RatesStore.js');
+//var ratesStore = require('./../stores/RatesStore.js');
 
 module.exports = React.createClass({
     getLocalizedPrice(){
@@ -15,7 +16,8 @@ module.exports = React.createClass({
                 <form>
                     <button role="remove">Remove this item from the cart</button>
                 </form>
-                Promotions - {this.props.promotions.length}
+
+                Promotions - {this.props.promotions ? this.props.promotions.length : "N/A"}
             </section>
         )
     }
