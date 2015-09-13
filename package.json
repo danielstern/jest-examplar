@@ -20,10 +20,12 @@
   "jest": {
     "unmockedModulePathPatterns": [
       "react"
-    ]
+    ],
+    "scriptPreprocessor": "./preprocessor.js"
   },
   "devDependencies": {
     "jest-cli": "^0.5.4",
-    "nodemon": "^1.4.1"
+    "nodemon": "^1.4.1",
+    "react-tools": "^0.13.3"
   }
 }
