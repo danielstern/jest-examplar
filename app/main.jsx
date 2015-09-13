@@ -1,6 +1,6 @@
 let React = require("react/addons");
 
-let CartItem = require('./CartItem.jsx');
+let CartItem = require('./components/CartItem.jsx');
 
 let CartApp = React.createClass({
     render(){

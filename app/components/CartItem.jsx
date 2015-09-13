@@ -1,5 +1,6 @@
 var React = require('react/addons');
-var conversionHelper = require('./conversionHelper.js');
+//var conversionHelper = require('./../helpers/RatesHelper.js');
+var ratesStore = require('./../stores/RatesStore.js');
 
 module.exports = React.createClass({
     getLocalizedPrice(){
