@@ -1,12 +1,12 @@
 //require('babel/register');
-jest.dontMock('../../app/CartItem.jsx');
+jest.dontMock('../../../app/components/CartItem.jsx');
 describe('Cart Item', function() {
   describe("The Price Display",()=>{
 
 
 
     it("should display the name of the item",()=>{
-      var CartItem = require('../../app/CartItem.jsx');
+      var CartItem = require('../../../app/components/CartItem.jsx');
       var React = require('react/addons');
       var TestUtils = React.addons.TestUtils;
 
