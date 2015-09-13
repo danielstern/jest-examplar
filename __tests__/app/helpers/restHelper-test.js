@@ -1,4 +1,3 @@
-// __tests__/fetchCurrentUser-test.js
 jest.dontMock('../../../app/helpers/restHelper.js');
 
 describe('the GET Helper', function() {
