@@ -1,7 +1,10 @@
+"use strict";
+
 var source = require('vinyl-source-stream');
 var babelify = require('babelify');
 var browserify = require('browserify');
 var gulp = require('gulp');
+let nodemon = require('gulp-nodemon');
 
 gulp.task('bundle',function(){
 	return browserify({
@@ -16,3 +19,14 @@ gulp.task('bundle',function(){
 	.pipe(source('app.js'))
 	.pipe(gulp.dest('./.tmp'));
 });
+
+gulp.task('serve',['bundle'],()=>{
+  nodemon({
+    script: 'server/server.js',
+    ext: 'js html jsx ejs',
+    tasks: ['bundle'],
+    env: { 'NODE_ENV': 'development' }
+  });
+
+
+})
