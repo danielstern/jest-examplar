@@ -21,11 +21,11 @@ gulp.task('bundle',function(){
 	.pipe(gulp.dest('./.tmp'));
 });
 
-gulp.task('serve',['start-server','bundle'],()=>{
+gulp.task('serve',['start-server'],()=>{
   gulp.watch(['app/**/*.*','server/**/*.*'],['start-server']);
 });
 
-gulp.task('start-server',()=>{
+gulp.task('start-server',['bundle'],()=>{
   var serverPath = './server/server.js';
 
   if (server){
