@@ -30,7 +30,5 @@ gulp.task('serve',['bundle'],()=>{
   }
 
   server = require(serverPath);
-  gulp.watch('app/**/*.*',['serve']);
-  gulp.watch('server/**/*.*',['serve']);
-
+  gulp.watch(['app/**/*.*','server/**/*.*'],['serve']);
 })
