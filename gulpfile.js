@@ -21,7 +21,11 @@ gulp.task('bundle',function(){
 	.pipe(gulp.dest('./.tmp'));
 });
 
-gulp.task('serve',['bundle'],()=>{
+gulp.task('serve',['start-server','bundle'],()=>{
+  gulp.watch(['app/**/*.*','server/**/*.*'],['start-server']);
+});
+
+gulp.task('start-server',()=>{
   var serverPath = './server/server.js';
 
   if (server){
@@ -30,5 +34,4 @@ gulp.task('serve',['bundle'],()=>{
   }
 
   server = require(serverPath);
-  gulp.watch(['app/**/*.*','server/**/*.*'],['serve']);
-})
+});
