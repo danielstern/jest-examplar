@@ -40,6 +40,4 @@ server.get('/',function(req,res){
 })
 
 let instance = server.listen(80,()=>{console.info("Express listening on port 80.");});
-process.on('exit', ()=>{instance.close()});
-
 module.exports = instance;
