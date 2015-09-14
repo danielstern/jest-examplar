@@ -1,8 +1,9 @@
 let React = require("react/addons");
 
 let LocalizationBox = React.createClass({
-  handleCountryChange(){
+  handleCountryChange(event){
     console.log("Change country.");
+    this.setState({country:event.target.value});
   },
   getInitialState(){
     console.log("Init locale box.");
@@ -21,4 +22,6 @@ let LocalizationBox = React.createClass({
     </form>
     )
   }
-})
+});
+
+module.exports = LocalizationBox;
