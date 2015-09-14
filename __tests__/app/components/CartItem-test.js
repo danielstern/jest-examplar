@@ -5,6 +5,8 @@ var React = require('react/addons');
 var TestUtils = React.addons.TestUtils;
 var CartItem = require('../../../app/components/CartItem.jsx');
 
+Error.stackTraceLimit = 3;
+
 describe('Cart Item', function() {
   describe("The Name Display",()=>{
 
@@ -60,6 +62,43 @@ describe('Cart Item', function() {
       expect(symbol.getDOMNode().textContent).toEqual("$");
 
 
-      })
+    })
+
+    it ("should display the converted GBP price and pound sign if the user's country is GB",()=>{
+      // Define a dummy item
+      var item = {
+        id:"005",
+        name:"Miniature Tower of London",
+        description:"It's a small Tower of London.",
+        priceUSD:67.50
+      };
+
+      // define dummy locale prefs with USA ascountry
+      var localePrefs = {
+        country:"GB",
+      }
+
+      // define dummy conversion rates
+      var rates = {
+        USDtoGBP:0.65
+      }
+
+      // create dummy cart
+      var cartItem = TestUtils.renderIntoDocument(
+        <CartItem item={item} localePrefs={localePrefs} rates={rates}/>
+      );
+
+      var expectedPrice = item.priceUSD * rates.USDtoGBP;
+
+      var price = TestUtils.findRenderedDOMComponentWithClass(
+        cartItem , 'cartItemPriceDisplay');
+      expect(price.getDOMNode().textContent).toEqual(expectedPrice.toString());
+
+      var symbol = TestUtils.findRenderedDOMComponentWithClass(
+        cartItem , 'currencySymbolDisplay');
+      expect(symbol.getDOMNode().textContent).toEqual("£");
+
+
     })
   })
+})
