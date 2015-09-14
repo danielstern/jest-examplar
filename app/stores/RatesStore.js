@@ -8,7 +8,7 @@ class RatesStore extends GenericStore {
     restHelper.get('rates')
     .then((conversionRates)=>{
       conversions = conversionRates;
-      this.onChange();
+      this.triggerListeners();
     },(e)=>{throw e});
   }
 

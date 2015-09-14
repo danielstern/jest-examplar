@@ -8,7 +8,7 @@ class LocalizationStore extends GenericStore {
     restHelper.get('locale')
     .then((locale)=>{
       localeInfo = locale;
-      this.onChange();
+      this.triggerListeners();
     });
   }
 
