@@ -1,13 +1,15 @@
+"use strict";
+
+var changeListeners = [];
+
 export default class GenericStore {
   constructor(){
-    this.changeListeners = [];
+
   }
-
-
 
   triggerListeners(){
       changeListeners.forEach(function(listener){
-          listener(groceryItems)	;
+          listener();
       })
   };
 
