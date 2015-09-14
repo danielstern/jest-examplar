@@ -11,7 +11,11 @@ module.exports = React.createClass({
         return (
             <section>
                 <h4>{this.props.item.name}</h4>
-                <p role="price">Your price - <span id="CartItemPriceDisplay">${this.getLocalizedPrice()}</span></p>
+                <p role="price">
+                  Your price -
+                    <span className="currencySymbolDisplay">$</span>
+                    <span className="cartItemPriceDisplay">{this.getLocalizedPrice()}</span>
+                </p>
                 <p role="description">{this.props.item.description}</p>
                 <form>
                     <button role="remove">Remove this item from the cart</button>
