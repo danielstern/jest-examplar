@@ -6,7 +6,6 @@ var server = new express();
 
 server.set("view engine","ejs");
 server.set("views","./");
-console.log(__dirname);
 server.use('/bower_components',  express.static(__dirname + '/../bower_components'));
 server.use('/',  express.static(__dirname + '/../.tmp'));
 
@@ -39,3 +38,4 @@ server.get('/',function(req,res){
 })
 
 server.listen(80);
+console.info("Express listening on port 80.");
