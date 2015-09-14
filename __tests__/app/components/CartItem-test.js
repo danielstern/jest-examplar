@@ -1,9 +1,9 @@
 //require('babel/register');
-jest.dontMock('../../../app/components/CartItem.jsx');
+jest.dontMock('../../../app/components/CartItem.js');
 
 var React = require('react/addons');
 var TestUtils = React.addons.TestUtils;
-var CartItem = require('../../../app/components/CartItem.jsx');
+var CartItem = require('../../../app/components/CartItem.js');
 
 Error.stackTraceLimit = 3;
 

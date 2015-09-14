@@ -9,7 +9,7 @@ let server;
 
 gulp.task('bundle',function(){
 	return browserify({
-		entries:'app/main.jsx',
+		entries:'app/main.js',
 		debug:true,
 	})
 	.transform(babelify.configure({

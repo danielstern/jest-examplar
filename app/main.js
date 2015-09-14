@@ -1,6 +1,6 @@
 let React = require("react/addons");
 
-let CartItem = require('./components/CartItem.jsx');
+let CartItem = require('./components/CartItem.js');
 let promotionsHelper = require('./helpers/promotionsHelper.js');
 
 let itemStore = require('./stores/ItemStore.js');

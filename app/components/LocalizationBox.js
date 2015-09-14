@@ -1,4 +1,5 @@
 let React = require("react/addons");
+let Dispatcher = require("flux").Dispatcher;
 
 let LocalizationBox = React.createClass({
   handleCountryChange(event){

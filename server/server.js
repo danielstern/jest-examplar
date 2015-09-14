@@ -26,7 +26,7 @@ var promotions = [{
 }];
 
 server.get('/',function(req,res){
-    var app = React.createFactory(require('./../app/main.jsx'));
+    var app = React.createFactory(require('./../app/main.js'));
 
     var generated = React.renderToString(app({
         items,
