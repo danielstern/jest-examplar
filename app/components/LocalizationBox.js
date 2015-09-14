@@ -1,10 +1,11 @@
 let React = require("react/addons");
-let Dispatcher = require("flux").Dispatcher;
+let dispatcher = require('./../dispatcher.js');
 
 let LocalizationBox = React.createClass({
   handleCountryChange(event){
     console.log("Change country.");
     this.setState({country:event.target.value});
+    dispatcher.dispatch("locale:change",{country:this.state.country});
   },
   getInitialState(){
     console.log("Init locale box.");
