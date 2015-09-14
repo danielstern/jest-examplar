@@ -5,6 +5,7 @@ var babelify = require('babelify');
 var browserify = require('browserify');
 var gulp = require('gulp');
 let nodemon = require('gulp-nodemon');
+let server;
 
 gulp.task('bundle',function(){
 	return browserify({
@@ -21,12 +22,15 @@ gulp.task('bundle',function(){
 });
 
 gulp.task('serve',['bundle'],()=>{
-  nodemon({
-    script: 'server/server.js',
-    ext: 'js html jsx ejs',
-    tasks: ['bundle'],
-    env: { 'NODE_ENV': 'development' }
-  });
+  var serverPath = './server/server.js';
 
+  if (server){
+    server.close();
+    delete require.cache[require.resolve(serverPath)];
+  }
+
+  server = require(serverPath);
+  gulp.watch('app/**/*.*',['serve']);
+  gulp.watch('server/**/*.*',['serve']);
 
 })
