@@ -38,6 +38,9 @@ server.get('/',function(req,res){
 .get("/rates",function(req,res){
   res.json(conversions);
 })
+.get("/items",function(req,res){
+  res.json(items);
+})
 
 let instance = server.listen(80,()=>{console.info("Express listening on port 80.");});
 module.exports = instance;
