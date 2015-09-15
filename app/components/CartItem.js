@@ -12,8 +12,8 @@ module.exports = React.createClass({
       };
     },
     getLocalizedPrice(){
-      console.log("Getting localized price...",this.props.locale.country);
-      return conversionHelper.convertFromUSD(this.props.locale.country, this.props.item.price);
+      //console.log("Getting localized price...",this.props.locale.country,this.props.item.price,conversionHelper.convertFromUSD(this.props.locale.country, this.props.item.price));
+      return conversionHelper.convertFromUSD(this.props.locale.country, this.props.item.priceUSD);
     },
     render(){
         return (
