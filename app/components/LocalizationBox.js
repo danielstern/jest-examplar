@@ -2,13 +2,15 @@ let React = require("react/addons");
 let dispatcher = require('./../dispatcher.js');
 
 let LocalizationBox = React.createClass({
-  handleCountryChange(event){
-    console.log("Change country.");
-    this.setState({country:event.target.value});
-    dispatcher.dispatch("locale:change",{country:this.state.country});
+  handleCountryChange({target:{value}}){
+    console.log("Change country.",value);
+    this.setState({country:value});
+    dispatcher.dispatch({
+      type:"locale:change",
+      country:value
+    });
   },
   getInitialState(){
-    console.log("Init locale box.");
     return {
       country:"USA",
     }
@@ -20,6 +22,7 @@ let LocalizationBox = React.createClass({
       <select name="country" id="countrySelect" onChange={this.handleCountryChange} value={this.state.country}>
           <option value="USA">United States</option>
           <option value="GB">Great Britain</option>
+          <option value="CAN">Canada</option>
       </select>
     </form>
     )

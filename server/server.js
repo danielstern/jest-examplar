@@ -25,13 +25,18 @@ var promotions = [{
     name:"President's Day Sale"
 }];
 
+var locale = {
+  country:"USA"
+}
+
 server.get('/',function(req,res){
     var app = React.createFactory(require('./../app/main.js'));
 
     var generated = React.renderToString(app({
         items,
         conversions,
-        promotions
+        promotions,
+        locale
     }));
     res.render('app/index',{app:generated,defaults:JSON.stringify({items,conversions,promotions})});
 })
@@ -40,6 +45,9 @@ server.get('/',function(req,res){
 })
 .get("/items",function(req,res){
   res.json(items);
+})
+.get("/locale",function(req,res){
+  res.json(locale);
 })
 
 let instance = server.listen(80,()=>{console.info("Express listening on port 80.");});
