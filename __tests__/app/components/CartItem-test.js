@@ -45,7 +45,6 @@ describe('Cart Item', function() {
       conversionMock.getSymbolForCountry = c => "$";
 			conversionMock.toCurrencyString = x => x.toFixed(2);
 
-
       let CartItem = require('../../../app/components/CartItem.js');
 
       var cartItem = TestUtils.renderIntoDocument(
@@ -62,26 +61,14 @@ describe('Cart Item', function() {
 
     })
 //
+		// todo - add this test
 //    it ("should change the displayed price if it receives a notification from the rates store",()=>{
 //      // Define a dummy item
-//      var item = {
-//        id:"005",
-//        name:"Miniature Tower of London",
-//        description:"It's a small Tower of London.",
-//        priceUSD:67.50
-//      };
+//			let conversionMock = require('../../../app/helpers/conversionHelper.js');
+//      conversionMock.convertFromUSD = (x,y)=>(y * 1);
+//      conversionMock.getSymbolForCountry = c => "$";
+//			conversionMock.toCurrencyString = x => x.toFixed(2);
 //
-//      // define dummy locale prefs with USA ascountry
-//      var localePrefs = {
-//        country:"GB",
-//      }
-//
-//      // define dummy conversion rates
-//      var rates = {
-//        USDtoGBP:0.65
-//      }
-//
-//      // create dummy cart
 //      var cartItem = TestUtils.renderIntoDocument(
 //        <CartItem item={item} localePrefs={localePrefs} rates={rates}/>
 //      );
