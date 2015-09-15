@@ -1,11 +1,19 @@
 "use strict";
-var React = require('react/addons');
-
-//var ratesStore = require('./../stores/RatesStore.js');
+let React = require('react/addons');
+//let ratesStore = require('./../stores/RatesStore.js');
+let conversionHelper = require('./../helpers/conversionHelper.js');
 
 module.exports = React.createClass({
+    getDefaultProps: function() {
+      return {
+        item:{name:"default item",price:1},
+        locale:{country:undefined},
+        promotions:[]
+      };
+    },
     getLocalizedPrice(){
-      return this.props.item.priceUSD;
+      console.log("Getting localized price...",this.props.locale.country);
+      return conversionHelper.convertFromUSD(this.props.locale.country, this.props.item.price);
     },
     render(){
         return (
@@ -21,7 +29,7 @@ module.exports = React.createClass({
                     <button role="remove">Remove this item from the cart</button>
                 </form>
 
-                Promotions - {this.props.promotions ? this.props.promotions.length : "N/A"}
+                Promotions - {this.props.promotions.length}
             </section>
         )
     }
