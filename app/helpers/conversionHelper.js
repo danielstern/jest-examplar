@@ -12,9 +12,12 @@ var rates = {
 
 module.exports = {
   convertFromUSD(locale,amount){
-    return (amount * rates[locale]).toFixed(2);
+    return (amount * rates[locale]);
   },
   getSymbolForCountry(locale){
     return symbols[locale];
+  },
+  toCurrencyString(amount){
+    return amount.toFixed(2);
   }
 }

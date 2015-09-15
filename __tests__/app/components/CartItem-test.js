@@ -37,14 +37,14 @@ describe('Cart Item', function() {
   });
 
   describe("The price display",()=>{
-    beforeEach(()=>{
 
-    })
     it ("should display the regular USD price and dollar sign if the user's country is USA",()=>{
 
       let conversionMock = require('../../../app/helpers/conversionHelper.js');
-      conversionMock.convertFromUSD = (x,y)=>(y * 1).toFixed(2);
+      conversionMock.convertFromUSD = (x,y)=>(y * 1);
       conversionMock.getSymbolForCountry = c => "$";
+			conversionMock.toCurrencyString = x => x.toFixed(2);
+
 
       let CartItem = require('../../../app/components/CartItem.js');
 

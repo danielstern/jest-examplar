@@ -14,8 +14,10 @@ module.exports = React.createClass({
     getLocalizedCurrencySymbol(){
       return conversionHelper.getSymbolForCountry(this.props.locale.country);
     },
-    getLocalizedPrice(){
-      return conversionHelper.convertFromUSD(this.props.locale.country, this.props.item.priceUSD);
+    getLocalizedPriceString(){
+      let price = conversionHelper.convertFromUSD(this.props.locale.country, this.props.item.priceUSD);
+      let currencyString = conversionHelper.toCurrencyString(price);
+      return currencyString;
     },
     render(){
         return (
@@ -24,7 +26,7 @@ module.exports = React.createClass({
                 <p role="price">
                   Your price -
                     <span className="currencySymbolDisplay">{this.getLocalizedCurrencySymbol()}</span>
-                    <span className="cartItemPriceDisplay">{this.getLocalizedPrice()}</span>
+                    <span className="cartItemPriceDisplay">{this.getLocalizedPriceString()}</span>
                 </p>
                 <p role="description">{this.props.item.description}</p>
                 <form>
