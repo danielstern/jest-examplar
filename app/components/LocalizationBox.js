@@ -12,7 +12,7 @@ let LocalizationBox = React.createClass({
   },
   getInitialState(){
     return {
-      country:"USA",
+      country:this.props.country||"USA",
     }
   },
   render(){
