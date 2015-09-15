@@ -26,18 +26,17 @@
     "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
     "testFileExtensions": [
       "es6",
-      "js",
-      "jsx"
+      "js"
     ],
     "moduleFileExtensions": [
       "js",
       "json",
-      "es6",
-      "jsx"
+      "es6"
     ],
     "unmockedModulePathPatterns": [
       "react"
-    ]
+    ],
+    "collectCoverage":true
   },
   "devDependencies": {
     "babel-jest": "^5.3.0",
