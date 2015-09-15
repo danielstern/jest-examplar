@@ -1,5 +1,7 @@
 var symbols = {
-  "USA":"$"
+  "USA":"$",
+  "CAN":"$",
+  "GB":"£"
 }
 
 var rates = {
@@ -10,9 +12,9 @@ var rates = {
 
 module.exports = {
   convertFromUSD(locale,amount){
-    return amount * rates[locale];
+    return (amount * rates[locale]).toFixed(2);
   },
-  getSymbolFor(locale){
+  getSymbolForCountry(locale){
     return symbols[locale];
   }
 }

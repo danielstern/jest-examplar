@@ -11,8 +11,10 @@ module.exports = React.createClass({
         promotions:[]
       };
     },
+    getLocalizedCurrencySymbol(){
+      return conversionHelper.getSymbolForCountry(this.props.locale.country);
+    },
     getLocalizedPrice(){
-      //console.log("Getting localized price...",this.props.locale.country,this.props.item.price,conversionHelper.convertFromUSD(this.props.locale.country, this.props.item.price));
       return conversionHelper.convertFromUSD(this.props.locale.country, this.props.item.priceUSD);
     },
     render(){
@@ -21,7 +23,7 @@ module.exports = React.createClass({
                 <h4>{this.props.item.name}</h4>
                 <p role="price">
                   Your price -
-                    <span className="currencySymbolDisplay">$</span>
+                    <span className="currencySymbolDisplay">{this.getLocalizedCurrencySymbol()}</span>
                     <span className="cartItemPriceDisplay">{this.getLocalizedPrice()}</span>
                 </p>
                 <p role="description">{this.props.item.description}</p>
