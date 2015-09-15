@@ -10,22 +10,19 @@ var TestUtils = React.addons.TestUtils;
 Error.stackTraceLimit = 3;
 
 describe('Cart Item', function() {
-  beforeEach(()=>{
 
-  })
+  let item = {
+    id:"003",
+    name:"Instant Noodles",
+    description:"Tasty!",
+    priceUSD:2.50
+  };
+
   describe("The Name Display",()=>{
 
     it("should display the name of the item",()=>{
+
       var CartItem = require('../../../app/components/CartItem.js');
-
-
-      // Define a dummy item
-      var item = {
-        id:"001",
-        name:"Instant Noodles",
-        description:"Amazing!",
-        priceUSD:2.95
-      };
 
       // Render a list item in the document
       var cartItem = TestUtils.renderIntoDocument(
@@ -40,37 +37,19 @@ describe('Cart Item', function() {
   });
 
   describe("The price display",()=>{
+    beforeEach(()=>{
+
+    })
     it ("should display the regular USD price and dollar sign if the user's country is USA",()=>{
-      // Define a dummy item
-      //jest.dontMock('../../../app/helpers/conversionHelper.js');
+
       let conversionMock = require('../../../app/helpers/conversionHelper.js');
       conversionMock.convertFromUSD = (x,y)=>(y * 1).toFixed(2);
       conversionMock.getSymbolForCountry = c => "$";
-      var CartItem = require('../../../app/components/CartItem.js');
-      var item = {
-        id:"003",
-        name:"Tsuchinoko",
-        description:"While quantities last.",
-        priceUSD:1095.50
-      };
 
-      // define dummy locale prefs with USA ascountry
-      var localePrefs = {
-        country:"USA",
-      }
+      let CartItem = require('../../../app/components/CartItem.js');
 
-      //let conversionMock = {};
-
-      //require('../../../app/helpers/conversionHelper.js');
-      //let conversionMock = jest.genMockFromModule('../../../app/helpers/conversionHelper.js');
-
-      //jest.setMock('../../../app/helpers/conversionHelper.js',conversionMock);
-      //jest.dontMock('../../../app/helpers/conversionHelper.js');
-      //jest.dontMock('./../helpers/conversionHelper.js');
-
-      // create dummy cart
       var cartItem = TestUtils.renderIntoDocument(
-        <CartItem item={item} locale={localePrefs} />
+        <CartItem item={item}/>
       );
 
       var price = TestUtils.findRenderedDOMComponentWithClass(
@@ -81,10 +60,9 @@ describe('Cart Item', function() {
         cartItem , 'currencySymbolDisplay');
       expect(symbol.getDOMNode().textContent).toEqual("$");
 
-
     })
 //
-//    it ("should display the converted GBP price and pound sign if the user's country is GB",()=>{
+//    it ("should change the displayed price if it receives a notification from the rates store",()=>{
 //      // Define a dummy item
 //      var item = {
 //        id:"005",
