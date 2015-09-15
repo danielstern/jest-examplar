@@ -1,7 +1,6 @@
 let React = require("react/addons");
 
-let CartItem = require('./components/CartItem.js');
-let promotionsHelper = require('./helpers/promotionsHelper.js');
+let CartItemList = require('./components/CartItemList.js');
 
 let itemStore = require('./stores/itemStore.js');
 let localizationStore = require('./stores/localizationStore.js');
@@ -16,11 +15,7 @@ let CartApp = React.createClass({
             <div>
                 <LocalizationBox />
                 <h3>{this.props.locale.country} Your Cart ({this.props.items.length})</h3>
-                <div>
-                {this.props.items.map((item, index)=>{
-                    return <CartItem key={"item-"+index} promotions={promotionsHelper.getPromotionsForItem(this.props.promotions,item)} item={item}/>
-                })}
-                </div>
+                <CartItemList items={this.props.items}/>
             </div>
         )
     }
