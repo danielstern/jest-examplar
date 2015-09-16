@@ -62,6 +62,7 @@ describe('Cart Item', function() {
     })
 //
 		// todo - add this test
+		// or should this be added? is this a responsiblity of Cart Item List?
 //    it ("should change the displayed price if it receives a notification from the rates store",()=>{
 //      // Define a dummy item
 //			let conversionMock = require('../../../app/helpers/conversionHelper.js');

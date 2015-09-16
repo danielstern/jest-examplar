@@ -6,6 +6,7 @@ let itemStore = require('./stores/itemStore.js');
 let localizationStore = require('./stores/localizationStore.js');
 
 let LocalizationBox = require('./components/LocalizationBox.js');
+let TotalBox = require('./components/TotalBox.js');
 
 
 let CartApp = React.createClass({
@@ -16,6 +17,7 @@ let CartApp = React.createClass({
                 <LocalizationBox />
                 <h3>{this.props.locale.country} Your Cart ({this.props.items.length})</h3>
                 <CartItemList items={this.props.items} locale={this.props.locale}/>
+								<TotalBox items={this.props.items} />
             </div>
         )
     }

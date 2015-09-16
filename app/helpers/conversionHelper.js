@@ -11,6 +11,9 @@ var rates = {
 }
 
 module.exports = {
+	toLocaleCurrencyString(amount,locale="USA"){
+		return this.getSymbolForCountry(locale) + this.toCurrencyString(this.convertFromUSD(locale,amount));
+	},
   convertFromUSD(locale,amount){
     return (amount * rates[locale]);
   },

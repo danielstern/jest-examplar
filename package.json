@@ -36,10 +36,11 @@
     "unmockedModulePathPatterns": [
       "react"
     ],
-    "collectCoverage":true
+    "collectCoverage": true
   },
   "devDependencies": {
     "babel-jest": "^5.3.0",
+    "d3": "^3.5.6",
     "gulp-nodemon": "^2.0.4",
     "jest-cli": "^0.5.4",
     "nodemon": "^1.4.1",
