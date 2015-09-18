@@ -30,23 +30,24 @@ let locale = {};
 
 
 itemStore.onChange(()=>{
-  items = itemStore.getItems();
-  render();
+	items = itemStore.getItems();
+	render();
 });
 
 localizationStore.onChange(()=>{
-  locale = localizationStore.getLocale();
-  render();
+	locale = localizationStore.getLocale();
+	render();
 });
 
 promotionsStore.onChange(()=>{
-  promotions = promotionsStore.getPromotions();
-  render();
+	promotions = promotionsStore.getPromotions();
+
+	render();
 });
 
 let render = ()=>{
     if (typeof window !== 'undefined') {
-      React.render(<CartApp items={items} locale={locale}/>,document.getElementById('mount'));
+      React.render(<CartApp promotions={promotions} items={items} locale={locale}/>, document.getElementById('mount'));
     }
 }
 
