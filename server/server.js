@@ -29,6 +29,11 @@ var locale = {
   country:"USA"
 }
 
+
+// simulate latency
+//server.use(function(req,res,next){setTimeout(next,3000)});
+
+
 server.get('/',function(req,res){
     var app = React.createFactory(require('./../app/main.js'));
 
