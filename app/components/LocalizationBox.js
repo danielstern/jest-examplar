@@ -3,7 +3,6 @@ let dispatcher = require('./../dispatcher.js');
 
 let LocalizationBox = React.createClass({
   handleCountryChange({target:{value}}){
-    console.log("Change country.",value);
     this.setState({country:value});
     dispatcher.dispatch({
       type:"locale:change",
