@@ -1,6 +1,5 @@
 "use strict";
 let React = require('react/addons');
-//let ratesStore = require('./../stores/RatesStore.js');
 let conversionHelper = require('./../helpers/conversionHelper.js');
 
 module.exports = React.createClass({
