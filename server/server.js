@@ -18,12 +18,7 @@ var conversions = {
   USDtoGBP:0.9
 };
 
-var promotions = [{
-    id:[501],
-    applyTo:[401],
-    reducePriceByUSD:5,
-    name:"President's Day Sale"
-}];
+var promotions = require("./promotions.json");
 
 var locale = {
   country:"USA"
@@ -53,6 +48,9 @@ server.get('/',function(req,res){
 })
 .get("/locale",function(req,res){
   res.json(locale);
+})
+.get("/promotions",function(req,res){
+  res.json(promotions);
 })
 
 let instance = server.listen(80,()=>{console.info("Express listening on port 80.");});
