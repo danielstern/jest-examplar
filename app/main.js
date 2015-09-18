@@ -15,7 +15,7 @@ let CartApp = React.createClass({
         return (
             <div>
                 <LocalizationBox />
-                <h3>{this.props.locale.country} Your Cart ({this.props.items.length})</h3>
+                <h3>Your Cart ({this.props.items.length})</h3>
                 <CartItemList items={this.props.items} locale={this.props.locale}/>
 								<TotalBox items={this.props.items} locale={this.props.locale} />
             </div>

@@ -22,19 +22,18 @@ module.exports = React.createClass({
     render(){
         return (
             <section>
-                <h4>{this.props.item.name}</h4>
-                <p role="price">
-                  Your price -
-                    <span className="currencySymbolDisplay">{this.getLocalizedCurrencySymbol()}</span>
-                    <span className="cartItemPriceDisplay">{this.getLocalizedPriceString()}</span>
-                </p>
-                <p role="description">{this.props.item.description}</p>
-                <form>
-                    <button role="remove">Remove this item from the cart</button>
-                </form>
-
-                Promotions - {this.props.promotions.length}
-            </section>
+				<h4>{this.props.item.name}</h4>
+				<p role="price">
+					Your price -
+					<span className="currencySymbolDisplay">{this.getLocalizedCurrencySymbol()}</span>
+					<span className="cartItemPriceDisplay">{this.getLocalizedPriceString()}</span>
+				</p>
+				<p role="description">{this.props.item.description}</p>
+				<aside>Promotions - {this.props.promotions.length}</aside>
+				<form>
+					<button role="remove">Remove this item from the cart</button>
+				</form>
+			</section>
         )
     }
 })
