@@ -1,8 +1,9 @@
+jest.dontMock('../../../app/stores/itemStore.js');
+
 describe("The Item Store",()=>{
 	it("Should register with the dispatcher",()=>{
 		//jest.dontMock('../../../app/stores/GenericStore.js');
 		jest.dontMock('../../../app/helpers/restHelper.js');
-		jest.dontMock('../../../app/stores/itemStore.js');
 
 		let itemStore = require('../../../app/stores/itemStore.js');
 		let dispatcher = require('../../../app/dispatcher.js');
@@ -24,7 +25,13 @@ describe("The Item Store",()=>{
 		expect(items[0].name).toEqual("Fuzzy Slippers");
 
 	});
-	it("Should make an ajax call to /items");
+	it("Should make a request to resthelper to call /items",()=>{
+		let restHelper = require('../../../app/helpers/restHelper.js');
+		restHelper.get = jest.genMockFunction()
+			.mockImplementation(x=>new Promise(x=>x,x=>x));
+		let itemStore = require('../../../app/stores/itemStore.js');
+		expect(restHelper.get).toBeCalledWith('items');
+	});
 	it("Should call onChange when new items are received");
 	it("Should return its items when getItems() is called");
 
