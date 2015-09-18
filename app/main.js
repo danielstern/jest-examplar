@@ -40,7 +40,7 @@ localizationStore.onChange(()=>{
 });
 
 promotionsStore.onChange(()=>{
-  locale = promotionsStore.getPromotions();
+  promotions = promotionsStore.getPromotions();
   render();
 });
 

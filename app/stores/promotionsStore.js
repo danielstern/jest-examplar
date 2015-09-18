@@ -4,25 +4,26 @@ let dispatcher = require('./../dispatcher.js');
 
 var promotions = {};
 class PromotionsStore extends GenericStore {
-  constructor(){
-    super();
-    restHelper.get('promotions')
-    .then((promos)=>{
-      promotions = promos;
-      this.triggerListeners();
-    });
+	constructor(){
+		super();
 
-    dispatcher.register((e)=>{
-      if (e.type==="promotions:change"){
-        promotions = e.promotions;
-        this.triggerListeners();
-      }
-    })
-  }
+		restHelper.get('promotions')
+		.then((promos)=>{
+			promotions = promos;
+			this.triggerListeners();
+		});
 
-  getPromotions(){
-    return promotions;
-  }
+		dispatcher.register((e)=>{
+			if (e.type==="promotions:change"){
+				promotions = e.promotions;
+				this.triggerListeners();
+			}
+		})
+	}
+
+	getPromotions(){
+		return promotions;
+	}
 }
 
 module.exports = new PromotionsStore();
