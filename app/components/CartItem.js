@@ -24,8 +24,7 @@ module.exports = React.createClass({
             <section>
 				<h4>{this.props.item.name}</h4>
 				<p role="price">
-					Your price -
-					<span className="currencySymbolDisplay">{this.getLocalizedCurrencySymbol()}</span>
+					Your price - <span className="currencySymbolDisplay">{this.getLocalizedCurrencySymbol()}</span>
 					<span className="cartItemPriceDisplay">{this.getLocalizedPriceString()}</span>
 				</p>
 				<p role="description">{this.props.item.description}</p>
