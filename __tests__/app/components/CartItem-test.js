@@ -1,5 +1,6 @@
 //require('babel/register');
 jest.dontMock('../../../app/components/CartItem.js');
+jest.dontMock('../mocks/genMockItem.js');
 
 var React = require('react/addons');
 var TestUtils = React.addons.TestUtils;
@@ -11,12 +12,7 @@ Error.stackTraceLimit = 3;
 
 describe('Cart Item', function() {
 
-  let item = {
-    id:"003",
-    name:"Instant Noodles",
-    description:"Tasty!",
-    priceUSD:2.50
-  };
+  let item = require('../mocks/genMockItem.js')();
 
   describe("The Name Display",()=>{
 
