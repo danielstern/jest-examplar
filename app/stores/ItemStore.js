@@ -1,18 +1,26 @@
 var restHelper = require("./../helpers/restHelper.js");
 var GenericStore = require('./GenericStore.js');
+let dispatcher = require('./../dispatcher.js');
 
 var items = {};
 class ItemsStore extends GenericStore {
   constructor(){
     super();
-    console.log("Getting item.");
     restHelper.get('items')
     .then((itemData)=>{
-      console.info("Got items...",itemData);
       items = itemData;
       this.triggerListeners();
     });
+
+		dispatcher.register((e)=>{
+      if (e.type="items:change"){
+        items = e.items;
+        this.triggerListeners();
+      }
+    })
   }
+
+
 
   getItems(){
     return items;
