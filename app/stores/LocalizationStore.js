@@ -13,7 +13,7 @@ class LocalizationStore extends GenericStore {
     });
 
     dispatcher.register((e)=>{
-      if (e.type="locale:change"){
+      if (e.type==="locale:change"){
         localeInfo = {
           country:e.country
         }

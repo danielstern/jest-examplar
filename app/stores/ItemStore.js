@@ -13,7 +13,7 @@ class ItemsStore extends GenericStore {
     });
 
 		dispatcher.register((e)=>{
-      if (e.type="items:change"){
+      if (e.type==="items:change"){
         items = e.items;
         this.triggerListeners();
       }
