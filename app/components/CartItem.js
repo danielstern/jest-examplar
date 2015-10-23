@@ -1,6 +1,7 @@
 "use strict";
 let React = require('react/addons');
 let conversionHelper = require('./../helpers/conversionHelper.js');
+let itemsHelper = require('./../helpers/itemsHelper.js');
 
 module.exports = React.createClass({
     getDefaultProps: function() {
@@ -17,6 +18,12 @@ module.exports = React.createClass({
       let currencyString = conversionHelper.toCurrencyString(price);
       return currencyString;
     },
+	removeItem(e){
+		console.log("Remove item clicked...",this.props.item);
+		e.preventDefault();
+		itemsHelper.removeItem(this.props.item);
+		
+	},
     render(){
         return (
             <section>
@@ -26,7 +33,7 @@ module.exports = React.createClass({
 					<span className="cartItemPriceDisplay">{this.getLocalizedPriceString()}</span>
 				</p>
 				<p role="description">{this.props.item.description}</p>
-				<form>
+				<form onSubmit={this.removeItem}>
 					<button role="remove">Remove this item from the cart</button>
 				</form>
 			</section>

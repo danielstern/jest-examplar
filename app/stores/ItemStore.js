@@ -1,30 +1,38 @@
-var restHelper = require("./../helpers/restHelper.js");
-var GenericStore = require('./GenericStore.js');
+let restHelper = require("./../helpers/restHelper.js");
+let GenericStore = require('./GenericStore.js');
 let dispatcher = require('./../dispatcher.js');
 
-var items = {};
+let items = [];
 class ItemsStore extends GenericStore {
-  constructor(){
-    super();
-    restHelper.get('items')
-    .then((itemData)=>{
-      items = itemData;
-      this.triggerListeners();
-    });
+	constructor(){
+		super();
+		restHelper.get('items')
+		.then((itemData)=>{
+			items = itemData;
+			this.triggerListeners();
+		});
 
 		dispatcher.register((e)=>{
-      if (e.type==="items:change"){
-        items = e.items;
-        this.triggerListeners();
-      }
-    })
-  }
+			console.log("Event...",e);
+			let split = e.type.split(':');
+			if (split[0]==='items'){
+				if (split[1]==="change"){
+					items = e.items;
+					this.triggerListeners();
+				}
 
+				if (split[1]==="remove"){
+					console.log("Removing",e,items);
+					items = items.filter(a => a.id !== e.item.id);
+					this.triggerListeners()
+				}
+			}	
+		})
+	}
 
-
-  getItems(){
-    return items;
-  }
+	getItems(){
+		return items;
+	}
 }
 
 module.exports = new ItemsStore();
