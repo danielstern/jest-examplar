@@ -4,7 +4,6 @@ let CartItemList = require('./components/CartItemList.js');
 
 let itemStore = require('./stores/itemStore.js');
 let localizationStore = require('./stores/localizationStore.js');
-let promotionsStore = require('./stores/promotionsStore.js');
 
 let LocalizationBox = require('./components/LocalizationBox.js');
 let TotalBox = require('./components/TotalBox.js');
@@ -25,7 +24,6 @@ let CartApp = React.createClass({
 });
 
 let items = [];
-let promotions = [];
 let locale = {};
 
 
@@ -39,17 +37,10 @@ localizationStore.onChange(()=>{
 	render();
 });
 
-promotionsStore.onChange(()=>{
-	promotions = promotionsStore.getPromotions();
-
-	render();
-});
-
 let render = ()=>{
     if (typeof window !== 'undefined') {
-      React.render(<CartApp promotions={promotions} items={items} locale={locale}/>, document.getElementById('mount'));
+      React.render(<CartApp items={items} locale={locale}/>, document.getElementById('mount'));
     }
 }
-
 
 module.exports = CartApp;

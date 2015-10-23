@@ -5,9 +5,6 @@ jest.dontMock('../mocks/genMockItem.js');
 var React = require('react/addons');
 var TestUtils = React.addons.TestUtils;
 
-
-
-
 Error.stackTraceLimit = 3;
 
 describe('Cart Item', function() {
@@ -56,31 +53,5 @@ describe('Cart Item', function() {
       expect(symbol.getDOMNode().textContent).toEqual("$");
 
     })
-//
-		// todo - add this test
-		// or should this be added? is this a responsiblity of Cart Item List?
-//    it ("should change the displayed price if it receives a notification from the rates store",()=>{
-//      // Define a dummy item
-//			let conversionMock = require('../../../app/helpers/conversionHelper.js');
-//      conversionMock.convertFromUSD = (x,y)=>(y * 1);
-//      conversionMock.getSymbolForCountry = c => "$";
-//			conversionMock.toCurrencyString = x => x.toFixed(2);
-//
-//      var cartItem = TestUtils.renderIntoDocument(
-//        <CartItem item={item} localePrefs={localePrefs} rates={rates}/>
-//      );
-//
-//      var expectedPrice = item.priceUSD * rates.USDtoGBP;
-//
-//      var price = TestUtils.findRenderedDOMComponentWithClass(
-//        cartItem , 'cartItemPriceDisplay');
-//      expect(price.getDOMNode().textContent).toEqual(expectedPrice.toString());
-//
-//      var symbol = TestUtils.findRenderedDOMComponentWithClass(
-//        cartItem , 'currencySymbolDisplay');
-//      expect(symbol.getDOMNode().textContent).toEqual("£");
-//
-//
-//    })
   })
 })

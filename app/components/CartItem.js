@@ -7,7 +7,6 @@ module.exports = React.createClass({
       return {
         item:{name:"default item",price:1},
         locale:{country:undefined},
-        promotions:[]
       };
     },
     getLocalizedCurrencySymbol(){
@@ -27,7 +26,6 @@ module.exports = React.createClass({
 					<span className="cartItemPriceDisplay">{this.getLocalizedPriceString()}</span>
 				</p>
 				<p role="description">{this.props.item.description}</p>
-				<aside>Promotions - {this.props.promotions.length}</aside>
 				<form>
 					<button role="remove">Remove this item from the cart</button>
 				</form>

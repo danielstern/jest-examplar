@@ -18,7 +18,6 @@ var conversions = {
   USDtoGBP:0.9
 };
 
-var promotions = require("./promotions.json");
 
 var locale = {
   country:"USA"
@@ -35,10 +34,9 @@ server.get('/',function(req,res){
     var generated = React.renderToString(app({
         items,
         conversions,
-        promotions,
         locale
     }));
-    res.render('app/index',{app:generated,defaults:JSON.stringify({items,conversions,promotions})});
+    res.render('app/index',{app:generated,defaults:JSON.stringify({items,conversions})});
 })
 .get("/rates",function(req,res){
   res.json(conversions);
@@ -48,10 +46,7 @@ server.get('/',function(req,res){
 })
 .get("/locale",function(req,res){
   res.json(locale);
-})
-.get("/promotions",function(req,res){
-  res.json(promotions);
-})
+});
 
 let instance = server.listen(80,()=>{console.info("Express listening on port 80.");});
 module.exports = instance;
