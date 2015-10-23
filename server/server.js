@@ -45,9 +45,9 @@ server.get('/',function(req,res){
 .get("/items",function(req,res){
   res.json(items);
 })
-.delete("items/:id",function(req,res){
+.delete("/items/:id",function(req,res){
 	console.log("remove item...");
-	items = items.filter(a => req.params.id !== e.item.id);
+	items = items.filter(item => req.params.id !== item.id);
 	
 })
 .get("/locale",function(req,res){
