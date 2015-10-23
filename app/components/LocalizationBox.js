@@ -16,7 +16,7 @@ let LocalizationBox = React.createClass({
   },
   render(){
     return (
-      <form role="Language and Currency Preferences">
+      <form role="Language and Currency Preferences" className='locale-form'>
       <h4>Select Country</h4>
       <select name="country" id="countrySelect" onChange={this.handleCountryChange} value={this.state.country}>
           <option value="USA">United States</option>

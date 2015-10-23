@@ -10,6 +10,7 @@ server.set("view engine","ejs");
 server.set("views","./");
 server.use('/bower_components',  express.static(__dirname + '/../bower_components'));
 server.use('/',  express.static(__dirname + '/../.tmp'));
+server.use('/',  express.static(__dirname + '/../app'));
 
 var items = require('./items.js');
 
