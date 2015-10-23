@@ -24,6 +24,7 @@ class ItemsStore extends GenericStore {
 				if (split[1]==="remove"){
 					console.log("Removing",e,items);
 					items = items.filter(a => a.id !== e.item.id);
+					
 					this.triggerListeners()
 				}
 			}	

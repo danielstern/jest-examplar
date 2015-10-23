@@ -11,5 +11,15 @@ module.exports = {
 				error
 			});
 		});
-	}
+	},
+	del(url){
+		return new Promise(function(success,error){
+			$.ajax({
+				url:url,
+				type:'DELETE',
+				success,
+				error
+			})
+		})
+	},
 }
