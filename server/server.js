@@ -37,6 +37,7 @@ server.get('/',function(req,res){
         conversions,
         locale
     }));
+	
     res.render('app/index',{app:generated,defaults:JSON.stringify({items,conversions})});
 })
 .get("/rates",function(req,res){
@@ -46,9 +47,7 @@ server.get('/',function(req,res){
   res.json(items);
 })
 .delete("/items/:id",function(req,res){
-	console.log("remove item...");
 	items = items.filter(item => req.params.id !== item.id);
-	
 })
 .get("/locale",function(req,res){
   res.json(locale);

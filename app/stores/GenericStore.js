@@ -3,19 +3,16 @@
 var changeListeners = [];
 
 export default class GenericStore {
-  constructor(){
 
-  }
+	triggerListeners(){
+		changeListeners.forEach(function(listener){
+			listener();
+		})
+	}
 
-  triggerListeners(){
-      changeListeners.forEach(function(listener){
-          listener();
-      })
-  };
-
-  onChange(listener){
-      changeListeners.push(listener);
-  }
+	onChange(listener){
+		changeListeners.push(listener);
+	}
 
 }
 

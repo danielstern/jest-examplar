@@ -6,8 +6,13 @@ let itemsHelper = require('./../helpers/itemsHelper.js');
 module.exports = React.createClass({
     getDefaultProps: function() {
       return {
-        item:{name:"default item",price:1},
-        locale:{country:undefined},
+        item:{
+			name:"default item",
+			price:1
+		},
+        locale:{
+			country:undefined
+		},
       };
     },
     getLocalizedCurrencySymbol(){
@@ -19,10 +24,8 @@ module.exports = React.createClass({
       return currencyString;
     },
 	removeItem(e){
-		console.log("Remove item clicked...",this.props.item);
 		e.preventDefault();
 		itemsHelper.removeItem(this.props.item);
-		
 	},
     render(){
         return (

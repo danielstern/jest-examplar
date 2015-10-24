@@ -3,7 +3,6 @@ let restHelper = require("./../helpers/restHelper.js");
 
 module.exports = {
 	removeItem(item){
-		console.log("Deleting...",item);
 		dispatcher.dispatch({
 			type:"items:remove",
 			item
