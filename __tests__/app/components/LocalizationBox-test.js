@@ -1,3 +1,4 @@
+"use strict";
 jest.dontMock('../../../app/components/LocalizationBox.js');
 
 let React = require('react/addons');

@@ -1,4 +1,6 @@
 //require('babel/register');
+"use strict";
+
 jest.dontMock('../../../app/components/CartItem.js');
 jest.dontMock('../mocks/genMockItem.js');
 

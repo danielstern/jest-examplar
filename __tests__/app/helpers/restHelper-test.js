@@ -1,4 +1,4 @@
-
+"use strict";
 
 describe('the GET Helper', function() {
   it('makes a GET request with the correct paramaters', function() {
