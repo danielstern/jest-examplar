@@ -13,7 +13,7 @@ gulp.task('bundle',function(){
 		debug:true,
 	})
 	.transform(babelify.configure({
-		stage:0,
+		
 		sourceMaps:true
 	}))
 	.bundle()
