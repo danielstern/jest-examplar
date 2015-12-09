@@ -1,20 +1,30 @@
 var restHelper = require("./../helpers/restHelper.js");
-var GenericStore = require('./GenericStore.js');
 
 var conversions = {};
-class RatesStore extends GenericStore {
-  constructor(){
-    super();
-    restHelper.get('rates')
-    .then((conversionRates)=>{
-      conversions = conversionRates;
-      this.triggerListeners();
-    },(e)=>{throw e});
-  }
+var changeListeners = [];
+class RatesStore {
+	constructor(){
 
-  getRates(){
-    return conversions;
-  }
+		restHelper.get('rates')
+		.then((conversionRates)=>{
+			conversions = conversionRates;
+			this.triggerListeners();
+		},(e)=>{throw e});
+	}
+
+	getRates(){
+		return conversions;
+	}
+	
+	triggerListeners(){
+		changeListeners.forEach(function(listener){
+			listener();
+		})
+	}
+
+	onChange(listener){
+		changeListeners.push(listener);
+	}
 }
 
 module.exports = new RatesStore();

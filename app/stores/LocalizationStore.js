@@ -1,26 +1,36 @@
 var restHelper = require("./../helpers/restHelper.js");
-var GenericStore = require('./GenericStore.js');
 let dispatcher = require('./../dispatcher.js');
 
 var localeInfo = {};
-class LocalizationStore extends GenericStore {
-  constructor(){
-    super();
-    restHelper.get('locale')
-    .then((locale)=>{
-      localeInfo = locale;
-      this.triggerListeners();
-    });
+var changeListeners = [];
+class LocalizationStore {
+	constructor(){
 
-    dispatcher.register((e)=>{
-      if (e.type==="locale:change"){
-        localeInfo = {
-          country:e.country
-        }
-        this.triggerListeners();
-      }
-    })
-  }
+		restHelper.get('locale')
+		.then((locale)=>{
+			localeInfo = locale;
+			this.triggerListeners();
+		});
+
+		dispatcher.register((e)=>{
+			if (e.type==="locale:change"){
+				localeInfo = {
+					country:e.country
+				}	
+				this.triggerListeners();
+			}
+		})
+	}
+
+	triggerListeners(){
+		changeListeners.forEach(function(listener){
+			listener();
+		})
+	}
+
+	onChange(listener){
+		changeListeners.push(listener);
+	}
 
   getLocale(){
     return localeInfo;

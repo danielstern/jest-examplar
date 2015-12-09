@@ -1,11 +1,11 @@
 var restHelper = require("./../helpers/restHelper.js");
-var GenericStore = require('./GenericStore.js');
 let dispatcher = require('./../dispatcher.js');
 
 var items = [];
-class ItemsStore extends GenericStore {
+var changeListeners = [];
+class ItemsStore {
 	constructor(){
-		super();
+		
 		restHelper.get('items')
 			.then((itemData)=>{
 				items = itemData;
@@ -21,6 +21,16 @@ class ItemsStore extends GenericStore {
 				}
 			}
 		})
+	}
+	
+	triggerListeners(){
+		changeListeners.forEach(function(listener){
+			listener();
+		})
+	}
+
+	onChange(listener){
+		changeListeners.push(listener);
 	}
 
 	getItems(){
