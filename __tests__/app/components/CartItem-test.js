@@ -4,8 +4,9 @@
 jest.dontMock('../../../app/components/CartItem.js');
 jest.dontMock('../mocks/genMockItem.js');
 
-var React = require('react/addons');
-var TestUtils = React.addons.TestUtils;
+var React = require('react');
+//var TestUtils = React.addons.TestUtils;
+let TestUtils = require('react-addons-test-utils');
 
 Error.stackTraceLimit = 3;
 
@@ -27,7 +28,7 @@ describe('Cart Item', function() {
       // Verify name displays correctly
       var label = TestUtils.findRenderedDOMComponentWithTag(
         cartItem , 'h4');
-      expect(label.getDOMNode().textContent).toEqual(item.name);
+      expect(label.textContent).toEqual(item.name);
       })
   });
 
@@ -48,11 +49,11 @@ describe('Cart Item', function() {
 
       var price = TestUtils.findRenderedDOMComponentWithClass(
         cartItem , 'cartItemPriceDisplay');
-      expect(price.getDOMNode().textContent).toEqual(item.priceUSD.toFixed(2));
+      expect(price.textContent).toEqual(item.priceUSD.toFixed(2));
 
       var symbol = TestUtils.findRenderedDOMComponentWithClass(
         cartItem , 'currencySymbolDisplay');
-      expect(symbol.getDOMNode().textContent).toEqual("$");
+      expect(symbol.textContent).toEqual("$");
 
     })
   })

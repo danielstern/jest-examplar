@@ -1,5 +1,5 @@
 let d3 = require('d3');
-let React = require("react/addons");
+let React = require("react");
 let conversionHelper = require('./../helpers/conversionHelper.js');
 
 module.exports = React.createClass({

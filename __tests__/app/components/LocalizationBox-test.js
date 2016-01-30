@@ -1,8 +1,9 @@
 "use strict";
 jest.dontMock('../../../app/components/LocalizationBox.js');
 
-let React = require('react/addons');
-let TestUtils = React.addons.TestUtils;
+let React = require('react');
+//let TestUtils = React.addons.TestUtils;
+let TestUtils = require('react-addons-test-utils');
 
 describe("the localization box",()=>{
 	it("should display the country associated with the current value",()=>{
@@ -20,11 +21,11 @@ describe("the localization box",()=>{
 		// todo - finalize localization helper
 		let select = TestUtils.findRenderedDOMComponentWithTag(localizationBox , 'select');
 
-		expect(select.getDOMNode().options[select.getDOMNode().selectedIndex].textContent).toEqual("Great Britain");
+		expect(select.options[select.selectedIndex].textContent).toEqual("Great Britain");
 
 		TestUtils.Simulate.change(select, { target: { value: "USA" } });
 
-		expect(select.getDOMNode().options[select.getDOMNode().selectedIndex].textContent).toEqual("United States");
+		expect(select.options[select.selectedIndex].textContent).toEqual("United States");
 
 	});
 

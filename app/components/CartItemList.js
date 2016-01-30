@@ -1,4 +1,4 @@
-let React = require("react/addons");
+let React = require("react");
 let CartItem = require('./CartItem.js');
 
 module.exports = React.createClass({

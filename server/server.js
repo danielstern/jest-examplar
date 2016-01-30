@@ -3,7 +3,7 @@
 require('babel-core/register');
 
 var express = require('express');
-var React = require('react/addons')
+var React = require('react')
 var server = new express();
 
 server.set("view engine","ejs");
