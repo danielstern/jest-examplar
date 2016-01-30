@@ -3,7 +3,8 @@
 require('babel-core/register');
 
 var express = require('express');
-var React = require('react')
+var ReactDOMServer = require('react-dom/server');
+var React = require('react');
 var server = new express();
 
 server.set("view engine","ejs");
@@ -32,7 +33,7 @@ var locale = {
 server.get('/',function(req,res){
     var app = React.createFactory(require('./../app/main.js'));
 
-    var generated = React.renderToString(app({
+    var generated = ReactDOMServer.renderToString(app({
         items,
         conversions,
         locale
