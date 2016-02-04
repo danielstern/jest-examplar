@@ -1,18 +1,18 @@
 "use strict";
 
-jest.dontMock('../../../app/stores/ItemStore.js');
+//jest.dontMock('../../../app/stores/ItemStore.js');
 
 describe("The Item Store",()=>{
 describe("The Item Store",function(){
 	it("Should make a request to resthelper to call /items",()=>{
-		jest.setMock('../../../app/helpers/restHelper.js',require('../../../app/helpers/__mocks__/restHelper.js'));
-		let itemStore = require('../../../app/stores/itemStore.js');
+	//	jest.setMock('../../../app/helpers/restHelper.js',require('../../../app/helpers/__mocks__/restHelper.js'));
+		let itemStore = require.requireActual('../../../app/stores/itemStore.js');
 		let restHelper = require('../../../app/helpers/restHelper.js');
 
 		expect(restHelper.get).toBeCalledWith('items');
 	});
 	
-	it.only("Should return the correct items",()=>{
+	it("Should return the correct items",()=>{
 		// todo... fix this. mocked rest helper not woring.
 		
 		//var itemStore;
