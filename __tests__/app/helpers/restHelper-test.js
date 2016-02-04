@@ -21,7 +21,7 @@ describe('the GET Helper', function() {
     });
   });
 	
-	it("sends over the correct values returned by jQuery",function(done){
+	it.only("sends over the correct values returned by jQuery",function(done){
 		
 		let returnedValue = null;
 		let value = {test:true};
@@ -32,9 +32,7 @@ describe('the GET Helper', function() {
 			let restHelper = require.requireActual('../../../app/helpers/restHelper.js');
 			let testURL = 'api/test';
 
-			// Call into the function we want to test
-
-			
+				
 			$.ajax.mockImplementation(function(a){
 				console.log("Mock implementation of jquery is called ajax is called");
 				let promise = new Promise(function(resolve,reject){
