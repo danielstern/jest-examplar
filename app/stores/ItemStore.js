@@ -6,8 +6,10 @@ var changeListeners = [];
 class ItemsStore {
 	constructor(){
 		
+		console.log("Item store getting items");
 		restHelper.get('items')
 			.then((itemData)=>{
+				console.log("Got items",items);
 				items = itemData;
 				this.triggerListeners();
 			});
@@ -27,6 +29,10 @@ class ItemsStore {
 		changeListeners.forEach(function(listener){
 			listener();
 		})
+	}
+	
+	getHelperReference(){
+		return restHelper;
 	}
 
 	onChange(listener){

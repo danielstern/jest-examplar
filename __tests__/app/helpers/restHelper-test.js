@@ -1,15 +1,15 @@
 "use strict";
 
+jest.dontMock('../../../app/helpers/restHelper.js');
 describe('the GET Helper', function() {
   it('makes a GET request with the correct paramaters', function() {
-    // this will be mocked;
-		jest.dontMock('../../../app/helpers/restHelper.js');
+    		
     let $ = require('jquery');
     let restHelper = require('../../../app/helpers/restHelper.js');
     let testURL = 'api/test';
 
     // Call into the function we want to test
-    restHelper.get(testURL,x=>x); // shortest ever noop
+    restHelper.get(testURL,x=>x); 
 
     // Verify everything works correctly
     expect($.ajax).toBeCalledWith({
@@ -20,4 +20,55 @@ describe('the GET Helper', function() {
       error: jasmine.any(Function)
     });
   });
+	
+	it("sends over the correct values returned by jQuery",function(done){
+		
+		let returnedValue = null;
+		let value = {test:true};
+		
+		runs(function(){
+			let promise;
+			let $ = require('jquery');
+			let restHelper = require.requireActual('../../../app/helpers/restHelper.js');
+			let testURL = 'api/test';
+
+			// Call into the function we want to test
+
+			
+			$.ajax.mockImplementation(function(a){
+				console.log("Mock implementation of jquery is called ajax is called");
+				let promise = new Promise(function(resolve,reject){
+					setTimeout(function(){
+						console.log("Timeout resolve...",value);
+						resolve(value);
+					},20);	
+				});
+				
+				return promise;
+			});
+			
+			restHelper.get(testURL).then(function(a){
+				console.log("Got result",a);
+				returnedValue = a;
+			});
+			
+			jest.runAllTimers();
+		});
+		
+		waitsFor(function(){
+			return returnedValue;
+		});
+		
+		runs(function(){
+			expect(returnedValue).toEqual(value);
+		})
+		
+		
+		
+		
+		
+		
+		
+
+	})
 });

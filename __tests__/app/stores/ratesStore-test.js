@@ -1,0 +1,3 @@
+describe("The Rates Store",()=>{
+	
+});
