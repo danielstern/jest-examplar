@@ -29,11 +29,8 @@ describe('the GET Helper', function() {
 		runs(function(){
 			let promise;
 			let $ = require('jquery');
-			let restHelper = require.requireActual('../../../app/helpers/restHelper.js');
-			let testURL = 'api/test';
-
-				
-			$.ajax.mockImplementation(function(a){
+			// incorrect implementation where jquery ajax does not take an object
+			/*$.ajax.mockImplementation(function(a){
 				console.log("Mock implementation of jquery is called ajax is called");
 				let promise = new Promise(function(resolve,reject){
 					setTimeout(function(){
@@ -42,8 +39,24 @@ describe('the GET Helper', function() {
 					},20);	
 				});
 				
+				jest.runAllTimers();
+				
 				return promise;
+			});*/
+			
+			$.ajax.mockImplementation(function(obj){
+				console.log("Mock request ajax...",obj);
+				obj.success(value);
 			});
+			
+			
+			let restHelper = require.requireActual('../../../app/helpers/restHelper.js');
+			let testURL = 'api/test';
+
+				
+			//var p = restHelper.get(testURL).then(function(a){console.log("Promise resolved form unmocked helper")});
+			//console.log(p);
+			//$.ajax({}).then(function(a){console.log("Test promise resolved")});
 			
 			restHelper.get(testURL).then(function(a){
 				console.log("Got result",a);
@@ -51,6 +64,8 @@ describe('the GET Helper', function() {
 			});
 			
 			jest.runAllTimers();
+			
+			
 		});
 		
 		waitsFor(function(){
