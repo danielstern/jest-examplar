@@ -39,7 +39,8 @@
       "es6"
     ],
     "unmockedModulePathPatterns": [
-      "react"
+      "react",
+      "jquery"
     ],
     "collectCoverage": true
   },
