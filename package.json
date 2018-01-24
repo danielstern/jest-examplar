@@ -40,7 +40,8 @@
     ],
     "unmockedModulePathPatterns": [
       "react",
-      "jquery"
+      "jquery",
+      "fbjs"
     ],
     "collectCoverage": true
   },
